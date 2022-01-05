@@ -143,7 +143,7 @@ RcppExport SEXP apclusterC(SEXP sR, SEXP maxitsR, SEXP convitsR,
                     cluster++;
                 }
             }
-            
+            std::cout << "Iter: " << i << std::endl;
             for (ii = 0; ii < N; ii++)
             {
                 if (E[ii])
@@ -162,6 +162,10 @@ RcppExport SEXP apclusterC(SEXP sR, SEXP maxitsR, SEXP convitsR,
                         }
                     }
                 }
+		    std::cout << "ii: " << ii << std::endl;
+		    std::cout << "tmpidx: " << tmpidx[ii] << std::endl;
+		    
+		    
             }
             
             if (details)
