@@ -2,6 +2,8 @@
 #include <float.h>
 #include <Rcpp.h>
 
+#include <fstream>
+
 #include "apclusterCppHeaders.h"
 
 using namespace Rcpp;
@@ -34,7 +36,13 @@ RcppExport SEXP apclusterC(SEXP sR, SEXP maxitsR, SEXP convitsR,
         exprefAll = NumericVector(maxits);
         idxAll    = NumericMatrix(N, maxits);
     }
+	
+			std::string filename("tmp.csv");
+		    std::ofstream file_out;
 
+		    file_out.open(filename, std::ios_base::app);
+	
+	
     bool dn = false, unconverged = false;
 
     int i = 0, j, ii, K;
@@ -162,12 +170,12 @@ RcppExport SEXP apclusterC(SEXP sR, SEXP maxitsR, SEXP convitsR,
                         }
                     }
                 }
-		    std::cout << "ii: " << ii << std::endl;
-		    std::cout << "tmpidx: " << tmpidx[ii] << std::endl;
-		    
+
+		    file_out << tmpidx[ii] << ",";
+		
 		    
             }
-            
+            file_out << endl;
             if (details)
             {
                 double sumPref = 0;
@@ -196,10 +204,6 @@ RcppExport SEXP apclusterC(SEXP sR, SEXP maxitsR, SEXP convitsR,
     }
 
     List ret;
-    
-    
-	
-	
 	
     ret["I"]      = I;
     ret["K"]      = K;
