@@ -203,10 +203,9 @@ RcppExport SEXP apclusterC(SEXP sR, SEXP maxitsR, SEXP convitsR,
     ret["unconv"] = LogicalVector::create(unconverged);
 
 	
-std::cout << "apclusterC.cpp it" << IntegerVector::create(i - 1) << std::endl;
+std::cout << "apclusterC.cpp unconv" << LogicalVector::create(unconverged) << std::endl;
 
 std::cout << "apclusterC K: " << K << std::endl;
-std::cout << "apclusterC.cpp details: " << details << std::endl;
 	
     if (details)
     {
