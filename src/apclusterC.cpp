@@ -201,14 +201,15 @@ RcppExport SEXP apclusterC(SEXP sR, SEXP maxitsR, SEXP convitsR,
     ret["K"]      = K;
     ret["it"]     = IntegerVector::create(i - 1);
     ret["unconv"] = LogicalVector::create(unconverged);
-
+std::cout << "K: " << K << std::endl; 
     if (details)
     {
         ret["netsimAll"]  = netsimAll;
         ret["dpsimAll"]   = dpsimAll;
         ret["exprefAll"]  = exprefAll;
         ret["idxAll"]     = idxAll;
-	std::cout << sizeof( idxAll ) << std::endl; 
+	    std::cout << "Huehue : " << sizeof( idxAll ) << std::endl; 
+		std::cout << "Huehue2 : " << sizeof( idxAll[0] ) << std::endl; 
     }
 
     return(ret);
