@@ -124,7 +124,7 @@ RcppExport SEXP apclusterLeveragedC(SEXP sR, SEXP selR, SEXP maxitsR,
     }
 
     List ret;
-
+    std::cout << "apclusterLeveragedC.cpp K: " << K << std::endl; 
     ret["I"]      = I;
     ret["K"]      = K;
     ret["it"]     = IntegerVector::create(i - 1);
