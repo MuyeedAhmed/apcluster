@@ -201,7 +201,13 @@ RcppExport SEXP apclusterC(SEXP sR, SEXP maxitsR, SEXP convitsR,
     ret["K"]      = K;
     ret["it"]     = IntegerVector::create(i - 1);
     ret["unconv"] = LogicalVector::create(unconverged);
-    std::cout << "apclusterC.cpp K: " << K << std::endl; 
+
+	
+std::cout << "apclusterC.cpp ret["unconv"]: " << ret["unconv"] << std::endl;
+
+std::cout << "apclusterC.cpp K: " << K << std::endl;
+std::cout << "apclusterC.cpp details: " << details << std::endl;
+	
     if (details)
     {
         ret["netsimAll"]  = netsimAll;
