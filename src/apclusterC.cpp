@@ -47,7 +47,6 @@ RcppExport SEXP apclusterC(SEXP sR, SEXP maxitsR, SEXP convitsR,
         {
             double max1 = -DBL_MAX, max2 = -DBL_MAX, avsim;
             int yMax;
-            std::cout << "huehuehuehuehuehue" << std::endl;
             for (j = 0; j < N; j++) // determine second-largest element of AS
             {
 		avsim = A(ii, j) + s(ii, j);
@@ -193,7 +192,11 @@ RcppExport SEXP apclusterC(SEXP sR, SEXP maxitsR, SEXP convitsR,
     }
 
     List ret;
-
+    
+    
+	
+	
+	
     ret["I"]      = I;
     ret["K"]      = K;
     ret["it"]     = IntegerVector::create(i - 1);
@@ -205,6 +208,7 @@ RcppExport SEXP apclusterC(SEXP sR, SEXP maxitsR, SEXP convitsR,
         ret["dpsimAll"]   = dpsimAll;
         ret["exprefAll"]  = exprefAll;
         ret["idxAll"]     = idxAll;
+	std::cout << sizeof( idxAll ) << std::endl; 
     }
 
     return(ret);
