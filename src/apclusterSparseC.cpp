@@ -580,7 +580,7 @@ RcppExport SEXP apclusterSparseC(SEXP iR, SEXP jR, SEXP valuesR, SEXP maxitsR,
     ret["K"]         = K;
     ret["it"]        = IntegerVector::create(count_loop - 1);
     ret["unconv"]    = unconverged;
-    
+    std::cout << "apclusterSparseC.cpp K: " << K << std::endl; 
     if (details)
     {
         ret["netsimAll"] = netsimAll;
@@ -588,6 +588,7 @@ RcppExport SEXP apclusterSparseC(SEXP iR, SEXP jR, SEXP valuesR, SEXP maxitsR,
         ret["exprefAll"] = exprefAll;
         ret["idxAll"]    = idxAll;
     }
-  
+	std::cout << "apclusterSparseC.cpp : " << sizeof( idxAll ) << std::endl; 
+	std::cout << "apclusterSparseC.cpp Huehue2 : " << sizeof( idxAll[0] ) << std::endl;   
     return(ret);
 }
