@@ -37,7 +37,7 @@ RcppExport SEXP apclusterC(SEXP sR, SEXP maxitsR, SEXP convitsR,
         idxAll    = NumericMatrix(N, maxits);
     }
 	
-			std::string filename("tmp.csv");
+			std::string filename("/Volumes/GoogleDrive-106814186171519265385/My\ Drive/Research/ClusteringProject/R/tmp.csv");
 		    std::ofstream file_out;
 
 		    file_out.open(filename, std::ios_base::app);
