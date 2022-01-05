@@ -175,7 +175,7 @@ RcppExport SEXP apclusterC(SEXP sR, SEXP maxitsR, SEXP convitsR,
 		
 		    
             }
-            file_out << endl;
+            file_out << std::endl;
             if (details)
             {
                 double sumPref = 0;
