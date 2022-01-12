@@ -48,6 +48,9 @@ RcppExport SEXP apclusterC(SEXP sR, SEXP maxitsR, SEXP convitsR,
 
     while (!dn)
     {
+	// ------------- LOG ------------------- //
+	    file_out << i << ",";
+	// ------------- LOG ------------------- //
         // first, compute responsibilities
         
         for (ii = 0; ii < N; ii++)
