@@ -36,12 +36,11 @@ RcppExport SEXP apclusterC(SEXP sR, SEXP maxitsR, SEXP convitsR,
         exprefAll = NumericVector(maxits);
         idxAll    = NumericMatrix(N, maxits);
     }
-	
-			std::string filename("/Volumes/GoogleDrive-106814186171519265385/My\ Drive/Research/ClusteringProject/R/tmp.csv");
-		    std::ofstream file_out;
-
-		    file_out.open(filename, std::ios_base::app);
-	
+	// ------------- LOG ------------------- //
+	std::string filename("/Volumes/GoogleDrive-106814186171519265385/My\ Drive/Research/ClusteringProject/R/tmp.csv");
+	std::ofstream file_out;
+	file_out.open(filename, std::ios_base::app);
+	// ------------- LOG ------------------- //
 	
     bool dn = false, unconverged = false;
 
@@ -151,7 +150,7 @@ RcppExport SEXP apclusterC(SEXP sR, SEXP maxitsR, SEXP convitsR,
                     cluster++;
                 }
             }
-            std::cout << "Iter: " << i << std::endl;
+            //std::cout << "Iter: " << i << std::endl;
             for (ii = 0; ii < N; ii++)
             {
                 if (E[ii])
@@ -170,13 +169,15 @@ RcppExport SEXP apclusterC(SEXP sR, SEXP maxitsR, SEXP convitsR,
                         }
                     }
                 }
-
+	// ------------- LOG ------------------- //
 		    file_out << tmpidx[ii] << ",";
-		
+	// ------------- LOG ------------------- //	
 		    
             }
+	// ------------- LOG ------------------- //
             file_out << std::endl;
-            if (details)
+ 	// ------------- LOG ------------------- //       
+	    if (details)
             {
                 double sumPref = 0;
                 
@@ -211,9 +212,9 @@ RcppExport SEXP apclusterC(SEXP sR, SEXP maxitsR, SEXP convitsR,
     ret["unconv"] = LogicalVector::create(unconverged);
 
 	
-std::cout << "apclusterC.cpp unconv" << LogicalVector::create(unconverged) << std::endl;
+	//std::cout << "apclusterC.cpp unconv" << LogicalVector::create(unconverged) << std::endl;
 
-std::cout << "apclusterC K: " << K << std::endl;
+	//std::cout << "apclusterC K: " << K << std::endl;
 	
     if (details)
     {
@@ -221,8 +222,8 @@ std::cout << "apclusterC K: " << K << std::endl;
         ret["dpsimAll"]   = dpsimAll;
         ret["exprefAll"]  = exprefAll;
         ret["idxAll"]     = idxAll;
-	std::cout << "apclusterC.cpp : " << sizeof( idxAll ) << std::endl; 
-	std::cout << "apclusterC.cpp Huehue2 : " << sizeof( idxAll[0] ) << std::endl; 
+	//std::cout << "apclusterC.cpp : " << sizeof( idxAll ) << std::endl; 
+	//std::cout << "apclusterC.cpp Huehue2 : " << sizeof( idxAll[0] ) << std::endl; 
     }
 
     return(ret);
