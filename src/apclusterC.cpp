@@ -37,8 +37,8 @@ RcppExport SEXP apclusterC(SEXP sR, SEXP maxitsR, SEXP convitsR,
         idxAll    = NumericMatrix(N, maxits);
     }
 	// ------------- LOG ------------------- //
-	//std::string filename("/home/neamtiu/Desktop/ma234/ClusteringProject/R/AP/labels.csv");	
-	std::string filename("/Volumes/GoogleDrive-106814186171519265385/My\ Drive/Research/ClusteringProject/R/AP/labels.csv");
+	std::string filename("/home/neamtiu/Desktop/ma234/ClusteringProject/R/AP/labels.csv");	
+	//std::string filename("/Volumes/GoogleDrive-106814186171519265385/My\ Drive/Research/ClusteringProject/R/AP/labels.csv");
 	std::ofstream file_out;
 	file_out.open(filename, std::ios_base::app);
 	// ------------- LOG ------------------- //
